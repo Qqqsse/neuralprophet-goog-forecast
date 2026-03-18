@@ -126,7 +126,9 @@ def main() -> None:
     # =========================
     # 📊 畫圖（Components）
     # =========================
-    model.plot_components(forecast, plotting_backend="matplotlib")
+    # 只取最近 200 天
+    recent_forecast = forecast.tail(100)
+    model.plot_components(recent_forecast, plotting_backend="matplotlib")
     components_path = project_root / "components_v2.png"
     plt.savefig(components_path, dpi=150, bbox_inches="tight")
     plt.close()

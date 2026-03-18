@@ -1,0 +1,11 @@
+#
+# 注意：NeuralProphet（以及其依賴如 numpy/torch）在 Windows + Python 3.13
+# 可能沒有可用的預編譯輪子（pip 會嘗試從原始碼編譯並失敗）。
+# 建議使用 Python 3.10 / 3.11 / 3.12 建立虛擬環境再安裝本檔案。
+#
+neuralprophet
+yfinance
+pandas
+matplotlib
+jupyter
+

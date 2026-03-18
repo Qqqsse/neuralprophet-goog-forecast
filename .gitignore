@@ -1,5 +1,7 @@
-"venv/" 
-".env" 
-"__pycache__/" 
-"data/" 
-".ipynb_checkpoints/" 
+venv/
+.env
+__pycache__/
+data/
+.ipynb_checkpoints/
+lightning_logs/
+*.ckpt

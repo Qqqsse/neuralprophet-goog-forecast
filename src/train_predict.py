@@ -79,12 +79,20 @@ def main() -> None:
 
     # 訓練
     # NeuralProphet 需要指定資料頻率（此處為日頻率 D）
-    _metrics = model.fit(df, freq="D")
+    _metrics = model.fit(df, freq="B")
 
     # 產生未來 30 天的資料框
     # n_historic_predictions=True：會在 forecast 中包含歷史區間的預測，方便畫圖對照
     future = model.make_future_dataframe(df, periods=30, n_historic_predictions=True)
     forecast = model.predict(future)
+    
+    # ==========================================
+    # 🌟 新增這段：將預測的詳細數據匯出成 CSV 檔
+    # ==========================================
+    csv_export_path = project_root / "data" / "forecast_results.csv"
+    forecast.to_csv(csv_export_path, index=False, encoding="utf-8-sig")
+    print(f"📊 預測原始數據已匯出至：{csv_export_path}")
+    # ==========================================
 
     # 1) 預測圖（Forecast plot）
     model.plot(forecast, plotting_backend="matplotlib")
